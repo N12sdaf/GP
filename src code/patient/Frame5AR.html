@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="App.css">
+ 
+  <title>العلامات الحيوية</title>
+  <style>
+    body {
+      background-image: url('Background.jpg');
+      background-size: auto;
+      width: 100%;
+      height: 920px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <header class="Sym-header">
+      <h1>العلامات الحيوية</h1>
+    </header>
+  </div>
+  <div class="box-section"><br>
+    <form id="vital-signs-form">
+      <div class="section">
+        <h2 class="box-header">ضغط الدم</h2>
+        <input id="SYS" type="number" maxlength="3" oninput="maxLengthCheck(this)">
+        <label class="vital-label" for="SYS">الضغط الانقباضي</label><br>
+        <input id="DIA" type="number" maxlength="3" oninput="maxLengthCheck(this)">
+        <label class="vital-label" for="DIA">الضغط الانبساطي</label><br>
+        <input id="pulse" type="number" maxlength="3" oninput="maxLengthCheck(this)">
+        <label class="vital-label" for="pulse">معدل نبضات القلب</label>
+      </div>
+      <div class="section">
+        <h2 class="box-header">الحرارة</h2>
+        <input id="temp" type="number" maxlength="3" oninput="maxLengthCheck(this)">
+        <label class="vital-label" for="temp">°C</label>
+      </div>
+      <div class="section">
+        <h2 class="box-header">معدل الاكسجين</h2>
+        <input type="number" id="spO2" maxlength="3" oninput="maxLengthCheck(this)">
+        <label class="vital-label" for="spO2">% SpO2</label>
+      </div>
+    </form>
+  </div>
+  <a href="#" class="button3" id="next2-button">التالي</a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function validateNumericInput(input, maxLength) {
+        input.value = input.value.replace(/\D/g, '').slice(0, maxLength);
+      
+        
+    }
+
+      document.getElementById("next2-button").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('userId');
+   
+        const sys = parseFloat(document.getElementById("SYS").value);
+        const dia = parseFloat(document.getElementById("DIA").value);
+        const pulse = parseFloat(document.getElementById("pulse").value);
+        const temp = parseFloat(document.getElementById("temp").value);
+        const spO2 = parseFloat(document.getElementById("spO2").value);
+
+        if (isNaN(sys) || isNaN(dia) || isNaN(pulse) || isNaN(temp) || isNaN(spO2)) {
+          alert("قم بتعبئة جميع الحقول.");
+        } else {
+          sessionStorage.setItem("sys", sys);
+          sessionStorage.setItem("dia", dia);
+          sessionStorage.setItem("pulse", pulse);
+          sessionStorage.setItem("temp", temp);
+          sessionStorage.setItem("spO2", spO2);
+
+          const url = `Frame6AR.html?userId=${userId}&sys=${sys}&dia=${dia}&pulse=${pulse}&temp=${temp}&spO2=${spO2}`;
+          
+          window.location.href = url;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

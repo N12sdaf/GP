@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="App.css">
+  <title>النتيجة</title>
+  <style>
+    body {
+      background-image: url('Background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 920px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body dir="rtl">
+  <div>
+    <header class="Sym-header">
+      <h1>النتيجة</h1>
+    </header>
+  
+  </div>
+  <div class="box-section1">
+    <div dir="rtl" class="section1">
+      <label class="result" id="Condition">الحالة:</label>
+      <output id="conditionOutput" class="result"></output><br>
+      <label class="result">رقم الانتظار:</label>
+      <output class="result" id="Waiting"></output><br>
+      <label class="result">رقم المنطقة:</label>
+      <output class="result" id="Clinic"></output>
+    </div>
+  
+    <div class="section1">
+      <label class="result">رقم الهوية:</label>
+      <output class="result" id="ID"></output><br>
+      <label class="result">الاسم:</label>
+      <output class="result" id="name"></output><br>
+    </div><br>
+    <a href="frame1.html" class="button">
+      انهاء
+    </a>
+    <div class="section-advice2">
+      <div class="box-header-low">
+      <h3 class="box-header">توجيهات:</h3><div>
+      <h2 class="box-header-text">حالتك ليست خطيرة , الرجاء الانتظار في المنطقة الاولى.</h2>
+    </div>
+    </div>
+    </div>
+    <div class="section-advice3">
+      <div class="box-header-med">
+      <h3 class="box-header-norisk">توجيهات:</h3><div>
+      <h2 class="box-header-text">حالتك تتطلب العناية الطبية, الرجاء الانتظار في المنطقة الثانية.
+      </h2>
+    </div>
+    </div>
+    </div>
+    <div class="section-advice4">
+      <div class="box-header-high">
+      <h3 class="box-header-norisk">توجيهات:</h3><div>
+      <h2 class="box-header-text">حالتك تتطلب رعاية فورية,الرجاء الاتجاه فورا الى المنطقة الثالثة</h2>
+    </div>
+    </div>
+    </div>    
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const result = urlParams.get('result');
+    const userId = urlParams.get('userId');
+
+    if (result !== null) {
+        const conditionOutput = document.getElementById('conditionOutput');
+        if (result === 'High') {
+            conditionOutput.style.color = 'red';
+            conditionOutput.textContent = "عالية";
+        } else if (result === 'Medium') {
+            conditionOutput.style.color = 'rgb(255, 105, 0)';
+            conditionOutput.textContent = "متوسطة";
+        } else if (result === 'Low') {
+            conditionOutput.style.color = 'green';
+            conditionOutput.textContent = "خفيفة";
+        }
+    }
+
+    const userIdElement = document.getElementById('ID');
+    userIdElement.textContent = userId;
+
+    const clinicNumberElement = document.getElementById('Clinic');
+if (result === 'High') {
+    clinicNumberElement.textContent = '3';
+} else if (result === 'Medium') {
+    clinicNumberElement.textContent = '2';
+} else if (result === 'Low') {
+    clinicNumberElement.textContent = '1';
+} else {
+    clinicNumberElement.textContent = 'Unknown';
+}
+
+
+    fetch('get_waiting_number.php?userId=' + userId + '&result=' + result)
+        .then(response => response.text())
+        .then(data => {
+            const waitingElement = document.getElementById('Waiting');
+            waitingElement.textContent = data;
+        });
+
+    fetch('get_name.php?userId=' + userId)
+        .then(response => response.text())
+        .then(data => {
+            const nameElement = document.getElementById('name');
+            nameElement.textContent = data;
+        });
+
+    const adviceSections = {
+        'Low': 'section-advice2',
+        'Medium': 'section-advice3',
+        'High': 'section-advice4'
+    };
+    
+    const sectionToShow = adviceSections[result];
+
+    if (sectionToShow) {
+        const sectionElement = document.querySelector('.' + sectionToShow);
+        sectionElement.style.display = 'block';
+    } else {
+        const noRisk = document.querySelector('.section-advice1');
+        noRisk.style.display = 'block';
+    }
+});
+
+
+  </script>
+</body>
+</html>
