@@ -1,0 +1,272 @@
+  
+  .back:hover {opacity: 10}
+
+  .button-18 {
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 15px;
+    text-align: center;
+  }
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: #16437E;
+    color: #ffffff;
+  }
+  
+  .button-18:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }
+
+.severity_div {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px;
+  display: inline-flex;
+  top: 10px; 
+  left: 60px;
+  margin-right: 5%;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+}
+.title_div{
+text-align: center;
+}
+.severity_container{
+  text-align: center;
+
+}
+
+body{
+  background-image: url("ad_back.jpg");
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  width: 320px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login-container h2 {
+  margin: 0 0 20px;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.login-container input[type="submit"] {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-container input[type="submit"]:hover {
+  background: #0056b3;
+}
+.admin_fun {
+          
+       
+  margin: 0;
+  text-align: center;
+}
+.patientID{
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.buttonCon{
+  background: #0056b3;
+  color: #fff;
+  border:none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.patientINFO_container{
+  text-align: left;
+  
+}
+.tb{
+  text-align: center;
+}
+.triagehistory{
+  text-align: center;
+}
+table.tb { width: 300px; border-collapse: collapse; }
+  .tb th, .tb td { border: solid 1px #777; padding: 5px; }
+textarea {
+    width: 90%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+  }
+  .cases-container{
+    width: 850px ;
+    margin: 80px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+.back {
+  background-color: #0056b3;
+  border: none;
+  color: rgba(0, 0, 0, 0.719);
+  padding: 16px 0; 
+  text-align: center;
+  font-size: 30px; 
+  width: 250px; 
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.8s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Georgia;
+  position: fixed;
+  top: 10px; 
+  left: 60px; 
+  border-radius: 150px;
+  box-shadow: 0 2px 4px rgb(174, 206, 206)
+  
+  
+}
+
+.back:hover {opacity: 10}
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.insertdoc {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+img{
+position: absolute;
+top: -15px;
+right: -15px;
+width: 30px;
+height: 30px;
+
+}
+.colse_email_sender{
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+.insertdoc{
+  text-align: center;
+}
+
+
+
+h2 {
+  text-align: center;
+}
+
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.insertdoctor{
+  background-color: #007BFF;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.insertdoctor:hover {
+  background-color: #0056b3;
+}
+#back{
+  position: fixed;
+  top: 10px; 
+  left: 60px; 
+}
